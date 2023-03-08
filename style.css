@@ -47,7 +47,7 @@ select {
 }
 
 .main-container {
-    width: 43.75rem;
+    max-width: 44rem;
 }
 
 .top-section-container {
@@ -96,9 +96,10 @@ select {
 
 .phone-mail-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: .4rem;
 }
 
 .phone-mail-container>div {
@@ -113,15 +114,32 @@ select {
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    transition-duration: .3s;
+    transition-delay: .1s;
 }
 
+.phone-container:hover,
+.mail-container:hover,
+.address-container:hover {
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
 
+.phone-container:hover .fa-phone,
+.mail-container:hover .fa-envelope,
+.address-container:hover .fa-location-dot {
+    color: var(--color-tiffany-dark);
+    opacity: 1;
+}
 
 .fa-phone,
 .fa-envelope {
     font-size: 1rem;
     color: var(--color-black);
     opacity: .2;
+
+    transition-duration: .3s;
+    transition-delay: .1s;
 }
 
 .phone-number {
@@ -145,11 +163,15 @@ select {
     gap: .35rem;
 
     padding-left: .5rem;
+
+    transition-duration: .3s;
+    transition-delay: .1s;
 }
 
 .address-container {
     display: flex;
-    gap: .75rem;
+    align-items: center;
+    gap: 1rem;
 }
 
 .address-container>p {
@@ -164,6 +186,9 @@ select {
     font-size: .65rem;
     color: var(--color-black);
     opacity: .2;
+
+    transition-duration: .3s;
+    transition-delay: .1s;
 }
 
 
@@ -174,7 +199,7 @@ select {
     justify-content: space-between;
     align-items: center;
 
-    margin-top: .4rem;
+    margin-top: .8rem;
     padding-left: .5rem;
 }
 
@@ -186,6 +211,13 @@ select {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+
+    transition-duration: .3s;
+    transition-delay: .1s;
+}
+
+.online-links-container>a:hover {
+    color: var(--color-tiffany-dark);
 }
 
 .social-media-container>a {
@@ -193,6 +225,9 @@ select {
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 50%;
     padding: .3rem;
+
+    transition-duration: .3s;
+    transition-delay: .1s;
 }
 
 .fa-facebook-f,
@@ -203,4 +238,52 @@ select {
     color: var(--color-black);
     opacity: .25;
     text-align: center;
+
+    transition-duration: .3s;
+    transition-delay: .1s;
+}
+
+.social-media-container>a:hover {
+    background-color: var(--color-tiffany-dark);
+    border: 1px solid var(--color-tiffany-dark);
+
+}
+
+.social-media-container>a:hover .fa-brands {
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* - - - - - RESPONSIVITY - - - - - */
+
+@media screen and (max-width:595px) {
+    .phone-mail-container {
+        margin-bottom: 1.2rem;
+    }
+
+    .phone-mail-container>div {
+        visibility: hidden;
+    }
+
+    .online-links-container {
+        margin-top: .75rem;
+        align-items: start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width:404px) {
+    .bottom-section-container {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+@media screen and (max-width:310px) {
+
+    .top-section-container,
+    .bottom-section-container {
+        padding: .4rem;
+    }
 }
